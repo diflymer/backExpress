@@ -11,10 +11,12 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var authRouter = require('./routes/auth');
 var interestsRouter = require('./routes/interests');
+var postsRouter = require('./routes/posts');
+var chatsRouter = require('./routes/chats');
 
 var app = express();
 
-//Корсы
+//Корсы настройка (сейчас для всех)
 app.use(cors())
 
 // view engine setup
@@ -28,9 +30,11 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
+app.use('/', usersRouter);
 app.use('/', authRouter);
 app.use('/', interestsRouter);
+app.use('/', postsRouter);
+app.use('/', chatsRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

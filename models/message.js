@@ -7,7 +7,7 @@ const Message = sequelize.define('Message', {
     allowNull: false,
   }
 }, {
-  timestamps: false,
+  timestamps: true,
 });
 
 module.exports = Message;
